@@ -6,10 +6,9 @@ DATA_PATH = Path(__file__).resolve().parents[1] / "data" / "prompts.json"
 
 def load_prompts(limit: int = 10000):
     # Load the ELI5 dataset (explain-like-I’m-5 questions)
-    ds = load_dataset("eli5", split=f"train[:{limit}]")
-
+    ds = load_dataset("squad", split=f"train[:{limit}]")
     # Extract just the questions
-    prompts = [q for q in ds["title"] if q and isinstance(q, str)]
+    prompts = [q for q in ds["question"] if q and isinstance(q, str)]
 
     with open(DATA_PATH, "w") as f:
         json.dump(prompts, f, indent=2)
