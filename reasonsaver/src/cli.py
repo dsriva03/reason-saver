@@ -25,7 +25,7 @@ def run():
     #call evaluate.py main function
     evaluate_main(input_path=args.input, output_path=args.output)
 
-if __name__ == "__main__:
+if __name__ == "__main__":
     run()
 
-    
+
